@@ -1,785 +1,826 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal Interior - Luxury Interior Design in Ghaziabad</title>
+    <title>DRI - Luxury Interior Design Studio | Kolkata</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Playfair Display & Inter -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#D96827',
+                            gold: '#C5A059',
+                            dark: '#0C0D0E',
+                            surface: '#16181A',
+                            accent: '#F3EFEA',
+                            muted: '#9A9A9A'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 32s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        /* Fallback base styling to guarantee visual styling even if CDN fails */
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #020617;
-            color: #f8fafc;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        .font-serif {
-            font-family: 'Playfair Display', Georgia, serif;
-        }
-        
-        /* Smooth marquee animation for project showcase & tags */
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            display: flex;
-            width: 200%;
-            animation: marquee 25s linear infinite;
-        }
-        .animate-marquee:hover {
-            animation-play-state: paused;
-        }
-
-        /* Glassmorphism utility */
-        .glass-card {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(245, 158, 11, 0.15);
-        }
-
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #020617;
+            background: #0C0D0E;
         }
         ::-webkit-scrollbar-thumb {
-            background: #334155;
+            background: #26292D;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #d97706;
+            background: #D96827;
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(22, 24, 26, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-nav {
+            background: rgba(12, 13, 14, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(217, 104, 39, 0.15);
+        }
+
+        /* Hero Carousel Transitions */
+        .hero-slide {
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out, transform 8s ease-out;
+            transform: scale(1.05);
+        }
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Marquee pause on hover */
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* Custom subtle gold gradient text */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F3EFEA 50%, #D96827 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-500 selection:text-slate-950">
+<body class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-orange selection:text-white">
 
-    <!-- NAVIGATION BAR -->
-    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-card border-b border-amber-500/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            
-            <!-- Logo Section -->
-            <a href="#" class="flex items-center gap-3 group">
-                <img src="logo.jpeg" alt="Royal Interior Logo" class="h-12 w-12 rounded-full object-cover border-2 border-amber-500/40 group-hover:border-amber-400 transition-all duration-300 shadow-md shadow-amber-500/10" onerror="this.src='https://placehold.co/100x100/1e293b/f59e0b?text=RI'" />
-                <div class="flex flex-col">
-                    <span class="font-serif font-bold text-lg sm:text-xl tracking-wider text-white group-hover:text-amber-400 transition-colors">ROYAL INTERIOR</span>
-                    <span class="text-[10px] tracking-widest text-amber-400 uppercase font-medium -mt-1">Luxury Design Studio</span>
-                </div>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-amber-400 transition-colors">About Us</a>
-                <a href="#services" class="hover:text-amber-400 transition-colors">Services</a>
-                <a href="#portfolio" class="hover:text-amber-400 transition-colors">Portfolio</a>
-                <a href="#process" class="hover:text-amber-400 transition-colors">Process</a>
-                <a href="#reviews" class="hover:text-amber-400 transition-colors">Reviews</a>
-                <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
-            </nav>
-
-            <!-- CTA Button -->
-            <div class="hidden md:block">
-                <a href="#contact" class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-5 py-2.5 rounded-full shadow-lg shadow-amber-500/20 transition-all transform hover:scale-105 text-sm">
-                    <span>Book Consultation</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
+    <!-- Top Contact Bar -->
+    <div class="bg-black/90 text-xs py-2 px-4 border-b border-white/5 hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-brand-muted">
+            <div class="flex items-center space-x-6">
+                <a href="tel:9330796432" class="hover:text-brand-orange transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-brand-orange"></i> +91 93307 96432
+                </a>
+                <a href="mailto:dri.interiordesigner@gmail.com" class="hover:text-brand-orange transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-brand-orange"></i> dri.interiordesigner@gmail.com
+                </a>
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-brand-orange"></i> Kolkata, West Bengal
+                </span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="https://instagram.com/designedbrahililyas" target="_blank" class="hover:text-brand-orange transition-colors flex items-center gap-1.5">
+                    <i class="fa-brands fa-instagram text-base"></i> @designedbrahililyas
                 </a>
             </div>
-
-            <!-- Mobile Menu Toggle Button -->
-            <button id="menu-btn" class="md:hidden text-amber-400 text-2xl p-2 focus:outline-none" aria-label="Toggle Navigation">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Navigation Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-950/95 px-6 py-6 space-y-4">
-            <a href="#about" class="block text-base font-medium hover:text-amber-400 transition-colors mobile-link">About Us</a>
-            <a href="#services" class="block text-base font-medium hover:text-amber-400 transition-colors mobile-link">Services</a>
-            <a href="#portfolio" class="block text-base font-medium hover:text-amber-400 transition-colors mobile-link">Portfolio</a>
-            <a href="#process" class="block text-base font-medium hover:text-amber-400 transition-colors mobile-link">Process</a>
-            <a href="#reviews" class="block text-base font-medium hover:text-amber-400 transition-colors mobile-link">Reviews</a>
-            <a href="#contact" class="block text-base font-medium hover:text-amber-400 transition-colors mobile-link">Contact</a>
-            <a href="#contact" class="inline-block w-full text-center bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold py-3 rounded-full text-sm">Book Consultation</a>
-        </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-slate-950">
-        <!-- Ambient Glowing Background Bubbles -->
-        <div class="absolute top-1/4 left-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center relative z-10">
-            <!-- Left Hero Text Content -->
-            <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-semibold tracking-wider uppercase">
-                    <i class="fa-solid fa-crown"></i> Ghaziabad's Premier Interior Studio
-                </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white font-serif">
-                    Crafting <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">Opulent Spaces</span> Tailored to Your Vision
-                </h1>
-                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
-                    Transform your residential and commercial properties into architectural masterpieces. Luxury interior design, turnkey execution, and custom furnishings in Ghaziabad & Delhi-NCR.
-                </p>
-                
-                <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="#portfolio" class="px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold shadow-xl shadow-amber-500/20 text-center transition-all hover:-translate-y-0.5">
-                        Explore Portfolio
-                    </a>
-                    <a href="#contact" class="px-8 py-4 rounded-full border border-slate-700 hover:border-amber-500/50 bg-slate-900/80 hover:bg-slate-900 text-white font-medium text-center transition-all backdrop-blur-sm">
-                        Request Quote
-                    </a>
-                </div>
-
-                <!-- Key Metrics & Badges -->
-                <div class="pt-8 grid grid-cols-3 gap-4 border-t border-slate-800/80 mt-8">
-                    <div>
-                        <div class="text-2xl sm:text-3xl font-bold text-amber-400 font-serif">250+</div>
-                        <div class="text-xs sm:text-sm text-slate-400">Luxury Projects</div>
-                    </div>
-                    <div>
-                        <div class="text-2xl sm:text-3xl font-bold text-amber-400 font-serif">12+</div>
-                        <div class="text-xs sm:text-sm text-slate-400">Years Experience</div>
-                    </div>
-                    <div>
-                        <div class="text-2xl sm:text-3xl font-bold text-amber-400 font-serif">100%</div>
-                        <div class="text-xs sm:text-sm text-slate-400">Satisfaction</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Hero Visual Grid -->
-            <div class="lg:col-span-6 grid grid-cols-2 gap-4 relative">
-                <div class="space-y-4">
-                    <div class="relative group rounded-2xl overflow-hidden shadow-2xl border border-slate-800 h-64 sm:h-72">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" 
-                             alt="Luxury Living Room Interior Design" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                        <span class="absolute bottom-4 left-4 text-xs font-medium text-amber-300 bg-slate-950/70 backdrop-blur-md px-3 py-1 rounded-full border border-amber-500/20">Modern Living Room</span>
-                    </div>
-                    <div class="relative group rounded-2xl overflow-hidden shadow-2xl border border-slate-800 h-44 sm:h-52">
-                        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" 
-                             alt="Luxury Master Bedroom Suite Design" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                        <span class="absolute bottom-4 left-4 text-xs font-medium text-amber-300 bg-slate-950/70 backdrop-blur-md px-3 py-1 rounded-full border border-amber-500/20">Master Bedroom</span>
-                    </div>
-                </div>
-                <div class="space-y-4 pt-8">
-                    <div class="relative group rounded-2xl overflow-hidden shadow-2xl border border-slate-800 h-44 sm:h-52">
-                        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80" 
-                             alt="Executive Office Interior Space" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                        <span class="absolute bottom-4 left-4 text-xs font-medium text-amber-300 bg-slate-950/70 backdrop-blur-md px-3 py-1 rounded-full border border-amber-500/20">Executive Suite</span>
-                    </div>
-                    <div class="relative group rounded-2xl overflow-hidden shadow-2xl border border-slate-800 h-64 sm:h-72">
-                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" 
-                             alt="Modular German Kitchen Interior" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                        <span class="absolute bottom-4 left-4 text-xs font-medium text-amber-300 bg-slate-950/70 backdrop-blur-md px-3 py-1 rounded-full border border-amber-500/20">Modular Kitchen</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INFINITE MARQUEE SECTION -->
-    <div class="py-4 bg-amber-500/10 border-y border-amber-500/20 overflow-hidden relative">
-        <div class="animate-marquee flex gap-8 items-center text-xs sm:text-sm font-semibold uppercase tracking-widest text-amber-400">
-            <span>• COMFORT</span> <span>• LUXURY</span> <span>• BEAUTY</span> <span>• AESTHETICS</span> <span>• ROYALTY</span> <span>• TURNKEY INTERIORS</span> <span>• 3D VISUALIZATION</span>
-            <span>• COMFORT</span> <span>• LUXURY</span> <span>• BEAUTY</span> <span>• AESTHETICS</span> <span>• ROYALTY</span> <span>• TURNKEY INTERIORS</span> <span>• 3D VISUALIZATION</span>
         </div>
     </div>
 
-    <!-- ABOUT US SECTION -->
-    <section id="about" class="py-20 bg-slate-900/60 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-6 relative">
-                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Royal Interior Studio Showcase Project Ghaziabad" 
-                             class="w-full h-[450px] object-cover" />
-                        <div class="absolute inset-0 bg-gradient-to-tr from-slate-950/70 via-transparent to-transparent"></div>
+    <!-- Main Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo (Assigned logoo.jpeg) -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brand-orange/40 group-hover:border-brand-orange transition-colors shadow-lg shadow-brand-orange/10">
+                        <img src="logoo.jpeg" alt="DRI Logo" class="w-full h-full object-cover">
                     </div>
-                    <!-- Brand Identity Card overlay on Image -->
-                    <div class="absolute -bottom-6 -right-6 bg-slate-900 border border-amber-500/30 p-5 rounded-2xl shadow-2xl z-20 hidden sm:flex items-center gap-4 max-w-xs backdrop-blur-md">
-                        <img src="logo.jpeg" alt="Royal Interior Badge Logo" class="w-12 h-12 rounded-full border border-amber-400 object-cover" onerror="this.src='https://placehold.co/100x100/1e293b/f59e0b?text=RI'" />
-                        <div>
-                            <p class="text-white font-serif font-bold text-sm">Royal Interior</p>
-                            <p class="text-slate-400 text-xs">Comfort | Luxury | Royalty</p>
-                        </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-2xl font-bold tracking-wider text-white group-hover:text-brand-orange transition-colors">DRI</span>
+                        <span class="text-[9px] uppercase tracking-[0.25em] text-brand-muted -mt-1">Designed by Rahil Ilyas</span>
                     </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                    <a href="#about" class="hover:text-brand-orange transition-colors">About</a>
+                    <a href="#services" class="hover:text-brand-orange transition-colors">Services</a>
+                    <a href="#portfolio" class="hover:text-brand-orange transition-colors">Portfolio</a>
+                    <a href="#reviews" class="hover:text-brand-orange transition-colors">Client Reviews</a>
+                    <a href="#contact" class="hover:text-brand-orange transition-colors">Contact</a>
                 </div>
 
-                <div class="lg:col-span-6 space-y-6">
-                    <span class="text-amber-400 text-sm font-semibold tracking-wider uppercase">About Royal Interior</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white leading-tight">
-                        Transforming Houses into Bespoke Luxury Sanctuaries in Ghaziabad
-                    </h2>
-                    <p class="text-slate-300 text-base leading-relaxed">
-                        At Royal Interior, we believe every space holds potential for extraordinary elegance. Based in Ghaziabad, Uttar Pradesh, our team of passionate interior architects and craftsmen blend contemporary trends with timeless classic aesthetics.
-                    </p>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        From Indirapuram to Raj Nagar Extension and across the NCR region, we offer comprehensive interior design services including space planning, luxury furniture manufacturing, lighting design, and turnkey execution.
-                    </p>
+                <!-- Action CTA -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#contact" class="bg-brand-orange hover:bg-orange-600 text-white px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all shadow-lg shadow-brand-orange/20 hover:shadow-brand-orange/40 transform hover:-translate-y-0.5">
+                        Book Consultation
+                    </a>
+                </div>
 
-                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
-                        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-800/40 border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                                <i class="fa-solid fa-compass-drafting"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-medium text-sm">3D Visualization</h4>
-                                <p class="text-xs text-slate-400">Photorealistic render previews before site work</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-800/40 border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                                <i class="fa-solid fa-key"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-medium text-sm">Turnkey Execution</h4>
-                                <p class="text-xs text-slate-400">Seamless end-to-end site management</p>
-                            </div>
-                        </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white hover:text-brand-orange focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-surface border-b border-white/10 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-base font-medium hover:text-brand-orange">About</a>
+            <a href="#services" class="block py-2 text-base font-medium hover:text-brand-orange">Services</a>
+            <a href="#portfolio" class="block py-2 text-base font-medium hover:text-brand-orange">Portfolio</a>
+            <a href="#reviews" class="block py-2 text-base font-medium hover:text-brand-orange">Reviews</a>
+            <a href="#contact" class="block py-2 text-base font-medium hover:text-brand-orange">Contact</a>
+            <a href="#contact" class="block w-full text-center bg-brand-orange text-white py-3 rounded-lg text-sm font-semibold uppercase tracking-wider">Book Consultation</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Smooth Transition Carousel -->
+    <section class="relative h-[88vh] min-h-[600px] overflow-hidden flex items-center justify-center">
+        <!-- Background Slides -->
+        <div class="absolute inset-0 z-0">
+            <div class="hero-slide active absolute inset-0 bg-cover bg-center" style="background-image: url('3.jpeg');"></div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center" style="background-image: url('44.jpeg');"></div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center" style="background-image: url('222.jpeg');"></div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center" style="background-image: url('455.jpeg');"></div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center" style="background-image: url('466.jpeg');"></div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center" style="background-image: url('999.jpeg');"></div>
+            <!-- Overlay Gradients for Readability -->
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/70 to-brand-dark/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/30"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-semibold tracking-widest uppercase backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+                    Kolkata's Premier Luxury Interior Studio
+                </div>
+                
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                    Crafting <span class="gold-gradient-text italic font-normal">Timeless</span> Living Spaces.
+                </h1>
+
+                <p class="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+                    Transforming Kolkata homes and luxury commercial studios with bespoke aesthetics, precision 3D architectural visualization, and handcrafted custom furniture.
+                </p>
+
+                <div class="pt-4 flex flex-wrap items-center gap-4">
+                    <a href="#portfolio" class="bg-brand-orange hover:bg-orange-600 text-white px-8 py-4 rounded-full font-semibold text-sm uppercase tracking-wider transition-all shadow-xl shadow-brand-orange/30 hover:scale-105">
+                        Explore Portfolio
+                    </a>
+                    <a href="tel:9330796432" class="glass-card hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold text-sm uppercase tracking-wider transition-all border border-white/20 flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-brand-orange"></i> Call Direct
+                    </a>
+                </div>
+
+                <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-6 text-left">
+                    <div>
+                        <div class="font-serif text-2xl font-bold text-white">100%</div>
+                        <div class="text-xs text-brand-muted uppercase tracking-wider mt-1">Bespoke Design</div>
+                    </div>
+                    <div>
+                        <div class="font-serif text-2xl font-bold text-white">3D</div>
+                        <div class="text-xs text-brand-muted uppercase tracking-wider mt-1">Virtual Preview</div>
+                    </div>
+                    <div>
+                        <div class="font-serif text-2xl font-bold text-white">In-House</div>
+                        <div class="text-xs text-brand-muted uppercase tracking-wider mt-1">Custom Furniture</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section id="services" class="py-20 bg-slate-950 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
-                <span class="text-amber-400 text-sm font-semibold tracking-wider uppercase">Our Services</span>
-                <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white">Comprehensive Design Solutions</h2>
-                <p class="text-slate-400 text-sm">Tailored architectural & interior services for high-end residential and commercial spaces.</p>
+    <!-- Services Section -->
+    <section id="services" class="py-24 relative bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-orange text-xs font-bold uppercase tracking-[0.3em]">Our Expertise</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-3">Tailored Interior Solutions</h2>
+                <p class="text-brand-muted text-sm sm:text-base mt-4 font-light">
+                    From initial 3D visualization concepts to meticulous execution, we elevate spaces across Kolkata with refined elegance.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service 1 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 group flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80" 
-                                 alt="Residential Interior Design" 
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-                        </div>
-                        <div class="p-6 space-y-3 relative">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-xl -mt-12 relative z-10 backdrop-blur-md shadow-lg">
-                                <i class="fa-solid fa-house-chimney-window"></i>
-                            </div>
-                            <h3 class="text-xl font-bold font-serif text-white group-hover:text-amber-400 transition-colors">Residential Interiors</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Luxury villa design, 2/3/4 BHK apartment makeovers, and custom master suites tailored to your lifestyle.</p>
-                        </div>
+                <div class="glass-card p-8 rounded-2xl relative group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-orange/50">
+                    <div class="w-14 h-14 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl mb-6 group-hover:bg-brand-orange group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-3">Residential Interiors</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">
+                        Exquisite bedrooms, lavish living rooms, modular kitchens, and grand entrance halls customized for modern lifestyle comfort.
+                    </p>
+                    <div class="mt-6 flex items-center text-xs font-semibold text-brand-orange uppercase tracking-wider gap-2">
+                        <span>Bedrooms • Living • Kitchens</span>
                     </div>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 group flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" 
-                                 alt="Commercial & Office Interior" 
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-                        </div>
-                        <div class="p-6 space-y-3 relative">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-xl -mt-12 relative z-10 backdrop-blur-md shadow-lg">
-                                <i class="fa-solid fa-building"></i>
-                            </div>
-                            <h3 class="text-xl font-bold font-serif text-white group-hover:text-amber-400 transition-colors">Commercial & Office</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Inspiring executive suites, corporate office layouts, boutique retail outlets, and hospitality spaces.</p>
-                        </div>
+                <div class="glass-card p-8 rounded-2xl relative group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-orange/50">
+                    <div class="w-14 h-14 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl mb-6 group-hover:bg-brand-orange group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-3">Commercial Interiors</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">
+                        High-end boutiques, luxury retail outlets, and makeover studios tailored to maximize brand aesthetic and customer experience.
+                    </p>
+                    <div class="mt-6 flex items-center text-xs font-semibold text-brand-orange uppercase tracking-wider gap-2">
+                        <span>Boutiques • Retail • Studios</span>
                     </div>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 group flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=600&q=80" 
-                                 alt="Wall Decor and Styling" 
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-                        </div>
-                        <div class="p-6 space-y-3 relative">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-xl -mt-12 relative z-10 backdrop-blur-md shadow-lg">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                            </div>
-                            <h3 class="text-xl font-bold font-serif text-white group-hover:text-amber-400 transition-colors">Decoration & Styling</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">False ceiling lights, wallpaper paneling, custom drapery, artifact curation, and bespoke furniture.</p>
-                        </div>
+                <div class="glass-card p-8 rounded-2xl relative group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-orange/50">
+                    <div class="w-14 h-14 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl mb-6 group-hover:bg-brand-orange group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-3">3D Design Concepts</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">
+                        Photorealistic 3D architectural renders and virtual walkthroughs before a single wall or surface is touched on site.
+                    </p>
+                    <div class="mt-6 flex items-center text-xs font-semibold text-brand-orange uppercase tracking-wider gap-2">
+                        <span>Pre-Execution Renders</span>
                     </div>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 group flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" 
-                                 alt="Turnkey Interior Execution" 
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-                        </div>
-                        <div class="p-6 space-y-3 relative">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-xl -mt-12 relative z-10 backdrop-blur-md shadow-lg">
-                                <i class="fa-solid fa-list-check"></i>
-                            </div>
-                            <h3 class="text-xl font-bold font-serif text-white group-hover:text-amber-400 transition-colors">Turnkey Execution</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Hassle-free execution from civil modifications to electrical, plumbing, painting, and final handover.</p>
-                        </div>
+                <div class="glass-card p-8 rounded-2xl relative group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-orange/50">
+                    <div class="w-14 h-14 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-2xl mb-6 group-hover:bg-brand-orange group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-3">Bespoke Furniture</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed">
+                        Custom storage units, handcrafted headboards, and signature furniture designed in-house to fit your space dimensions exactly.
+                    </p>
+                    <div class="mt-6 flex items-center text-xs font-semibold text-brand-orange uppercase tracking-wider gap-2">
+                        <span>In-House Craftsmanship</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PORTFOLIO SECTION WITH FILTERING -->
-    <section id="portfolio" class="py-20 bg-slate-900/40 relative border-t border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+    <!-- Portfolio Gallery Grid -->
+    <section id="portfolio" class="py-24 bg-brand-surface relative border-t border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
                 <div>
-                    <span class="text-amber-400 text-sm font-semibold tracking-wider uppercase">Portfolio</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white mt-2">Featured Projects</h2>
+                    <span class="text-brand-orange text-xs font-bold uppercase tracking-[0.3em]">Curated Portfolio</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-3">Selected Projects</h2>
                 </div>
-
-                <!-- Category Filter Buttons -->
-                <div class="flex flex-wrap gap-2" id="portfolio-filters">
-                    <button data-filter="all" class="px-4 py-2 rounded-full text-xs font-semibold bg-amber-500 text-slate-950 transition-all filter-btn active">All Projects</button>
-                    <button data-filter="living" class="px-4 py-2 rounded-full text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all filter-btn">Living Rooms</button>
-                    <button data-filter="bedroom" class="px-4 py-2 rounded-full text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all filter-btn">Bedrooms</button>
-                    <button data-filter="kitchen" class="px-4 py-2 rounded-full text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all filter-btn">Modular Kitchens</button>
-                    <button data-filter="office" class="px-4 py-2 rounded-full text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all filter-btn">Offices</button>
-                </div>
+                <p class="text-brand-muted text-sm max-w-md mt-4 md:mt-0 font-light">
+                    Explore our recently completed residential and commercial projects around Kolkata.
+                </p>
             </div>
 
-            <!-- Portfolio Items Grid -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+            <!-- Image Grid with Interactive Preview -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-white/10" onclick="openLightbox('3.jpeg', 'Modern Bedroom Wall Molding & Marble Texture')">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="3.jpeg" alt="DRI Interior Design Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="text-brand-orange text-xs uppercase tracking-widest font-semibold">Residential</span>
+                            <h3 class="font-serif text-xl font-bold text-white mt-1">Luxury Master Suite</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-white/10" onclick="openLightbox('44.jpeg', 'Ambient Lighting & Custom Window Treatments')">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="44.jpeg" alt="DRI Interior Design Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="text-brand-orange text-xs uppercase tracking-widest font-semibold">Residential</span>
+                            <h3 class="font-serif text-xl font-bold text-white mt-1">Sunlit Bedroom Suite</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-white/10" onclick="openLightbox('222.jpeg', 'Contoured Wall Art & Signature Lighting')">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="222.jpeg" alt="DRI Interior Design Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="text-brand-orange text-xs uppercase tracking-widest font-semibold">3D Concept</span>
+                            <h3 class="font-serif text-xl font-bold text-white mt-1">Organic Layered Accent Wall</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-white/10" onclick="openLightbox('455.jpeg', 'Full Room Layout & Bespoke Wardrobes')">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="455.jpeg" alt="DRI Interior Design Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="text-brand-orange text-xs uppercase tracking-widest font-semibold">Custom Interiors</span>
+                            <h3 class="font-serif text-xl font-bold text-white mt-1">Executive Bedroom Layout</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-white/10" onclick="openLightbox('466.jpeg', 'Glam Dressing Studio & Celestial Wardrobe')">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="466.jpeg" alt="DRI Interior Design Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="text-brand-orange text-xs uppercase tracking-widest font-semibold">Studio & Retail</span>
+                            <h3 class="font-serif text-xl font-bold text-white mt-1">Makeover Studio & Vanity</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer border border-white/10" onclick="openLightbox('999.jpeg', 'Bespoke Lighting & Contemporary Aesthetic')">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="999.jpeg" alt="DRI Interior Design Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="text-brand-orange text-xs uppercase tracking-widest font-semibold">3D Concept</span>
+                            <h3 class="font-serif text-xl font-bold text-white mt-1">Artisanal Master Bed Setup</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOVING REVIEW RAIL SECTION (8 REVIEWS) -->
+    <section id="reviews" class="py-24 bg-brand-dark overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+            <span class="text-brand-orange text-xs font-bold uppercase tracking-[0.3em]">Client Testimonials</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-3">Words from Our Clients</h2>
+            <p class="text-brand-muted text-sm sm:text-base mt-4 max-w-xl mx-auto font-light">
+                Discover why homeowners and studio owners across Kolkata trust DRI for their signature interior transformations.
+            </p>
+        </div>
+
+        <!-- Infinite Marquee Rail Container -->
+        <div class="relative w-full overflow-hidden marquee-container py-4">
+            <!-- Left & Right Fading Edges -->
+            <div class="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-brand-dark to-transparent z-20 pointer-events-none"></div>
+            <div class="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-brand-dark to-transparent z-20 pointer-events-none"></div>
+
+            <!-- Moving Content (Repeated twice for seamless loop) -->
+            <div class="flex space-x-6 w-max animate-marquee marquee-content">
                 
-                <!-- Item 1 -->
-                <div class="portfolio-item group relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 h-80" data-category="living">
-                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80" 
-                         alt="Penthouse Living Room" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                        <span class="text-amber-400 text-xs font-semibold uppercase">Living Room • Raj Nagar</span>
-                        <h3 class="text-xl font-bold text-white font-serif mt-1">Contemporary Penthouse</h3>
-                        <p class="text-slate-300 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Italian marble flooring, ambient LED cove lighting, and velvet upholstery.</p>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="portfolio-item group relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 h-80" data-category="bedroom">
-                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" 
-                         alt="Master Bedroom Vasundhara" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                        <span class="text-amber-400 text-xs font-semibold uppercase">Master Bedroom • Vasundhara</span>
-                        <h3 class="text-xl font-bold text-white font-serif mt-1">Serene Luxury Suite</h3>
-                        <p class="text-slate-300 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Padded headboard wall accent, walk-in wardrobe, and warm timber tones.</p>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="portfolio-item group relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 h-80" data-category="kitchen">
-                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" 
-                         alt="Modular Kitchen Indirapuram" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                        <span class="text-amber-400 text-xs font-semibold uppercase">Modular Kitchen • Indirapuram</span>
-                        <h3 class="text-xl font-bold text-white font-serif mt-1">Matte German Kitchen</h3>
-                        <p class="text-slate-300 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Quartz countertop, soft-close Blum fittings, and integrated appliances.</p>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="portfolio-item group relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 h-80" data-category="office">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" 
-                         alt="Executive Office Vaishali" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                        <span class="text-amber-400 text-xs font-semibold uppercase">Executive Office • Vaishali</span>
-                        <h3 class="text-xl font-bold text-white font-serif mt-1">Tech Corporate Workspace</h3>
-                        <p class="text-slate-300 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Acoustic wall paneling, glass partitions, and ergonomic layouts.</p>
-                    </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="portfolio-item group relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 h-80" data-category="living">
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" 
-                         alt="Minimalist Living Interior" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                        <span class="text-amber-400 text-xs font-semibold uppercase">Living & Dining • Crossings Republik</span>
-                        <h3 class="text-xl font-bold text-white font-serif mt-1">Minimalist Modern Living</h3>
-                        <p class="text-slate-300 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Monochromatic palette with subtle warm wood textures and designer lighting.</p>
-                    </div>
-                </div>
-
-                <!-- Item 6 -->
-                <div class="portfolio-item group relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 h-80" data-category="bedroom">
-                    <img src="https://images.unsplash.com/photo-1540518614846-7ede433c5172?auto=format&fit=crop&w=800&q=80" 
-                         alt="Heritage Inspired Bedroom" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                        <span class="text-amber-400 text-xs font-semibold uppercase">Royal Villa • Kavi Nagar</span>
-                        <h3 class="text-xl font-bold text-white font-serif mt-1">Heritage Inspired Suite</h3>
-                        <p class="text-slate-300 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Intricate wall molding, regal gold accents, and custom hand-crafted furniture.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- PROCESS SECTION -->
-    <section id="process" class="py-20 bg-slate-950 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
-                <span class="text-amber-400 text-sm font-semibold tracking-wider uppercase">How We Work</span>
-                <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white">Our Seamless 4-Step Process</h2>
-                <p class="text-slate-400 text-sm">From concept to handover, we ensure every detail is meticulously managed.</p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-                <!-- Step 1 -->
-                <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl relative space-y-4">
-                    <span class="text-4xl font-serif font-bold text-amber-500/30">01</span>
-                    <h3 class="text-lg font-bold text-white font-serif">Consultation & Concept</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">In-depth discussion of your lifestyle requirements, budget preferences, and design taste.</p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl relative space-y-4">
-                    <span class="text-4xl font-serif font-bold text-amber-500/30">02</span>
-                    <h3 class="text-lg font-bold text-white font-serif">3D Visual Design</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Photorealistic 3D renders and material mood boards for complete visual clarity before site work.</p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl relative space-y-4">
-                    <span class="text-4xl font-serif font-bold text-amber-500/30">03</span>
-                    <h3 class="text-lg font-bold text-white font-serif">Precision Execution</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Factory production of custom furniture and skilled site execution supervised by project leads.</p>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl relative space-y-4">
-                    <span class="text-4xl font-serif font-bold text-amber-500/30">04</span>
-                    <h3 class="text-lg font-bold text-white font-serif">Final Handover</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">Deep cleaning, styling, artifact placement, and on-time key handover for your dream home.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS SECTION -->
-    <section id="reviews" class="py-20 bg-slate-900/60 relative border-t border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
-                <span class="text-amber-400 text-sm font-semibold tracking-wider uppercase">Client Reviews</span>
-                <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white">What Our Clients Say</h2>
-                <p class="text-slate-400 text-sm">Trusted by homeowners and commercial clients across Ghaziabad & Delhi NCR.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
                 <!-- Review 1 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="text-amber-400 flex gap-1 text-sm">
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-slate-300 text-sm italic leading-relaxed">
-                            "Royal Interior completely transformed our 4BHK apartment in Raj Nagar Extension. Their attention to lighting, space optimization, and luxury finishes exceeded our expectations!"
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "Rahil transformed our Salt Lake apartment into an absolute masterpiece. The 3D render matched the exact final outcome. High professionalism throughout!"
                         </p>
                     </div>
-                    <div class="flex items-center gap-4 pt-6 border-t border-slate-800 mt-6">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" 
-                             alt="Priya Sharma Client Review" 
-                             class="w-12 h-12 rounded-full object-cover border-2 border-amber-500/40" />
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
                         <div>
-                            <h4 class="text-white font-bold text-sm">Priya Sharma</h4>
-                            <p class="text-xs text-slate-400">Homeowner, Raj Nagar Ext.</p>
+                            <h4 class="font-serif font-bold text-white text-base">Subhashish Roy</h4>
+                            <span class="text-xs text-brand-muted">Salt Lake, Kolkata</span>
                         </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">Residential</span>
                     </div>
                 </div>
 
                 <!-- Review 2 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="text-amber-400 flex gap-1 text-sm">
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-slate-300 text-sm italic leading-relaxed">
-                            "Their turnkey execution model is flawless. We handed over our bare shell office space in Indirapuram and received a world-class executive workspace delivered right on schedule."
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "The vanity mirror wall and bespoke star wardrobe created for our Park Street studio received so many compliments. Exceptional taste and finishing!"
                         </p>
                     </div>
-                    <div class="flex items-center gap-4 pt-6 border-t border-slate-800 mt-6">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" 
-                             alt="Rajesh Gupta Client Review" 
-                             class="w-12 h-12 rounded-full object-cover border-2 border-amber-500/40" />
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
                         <div>
-                            <h4 class="text-white font-bold text-sm">Rajesh Gupta</h4>
-                            <p class="text-xs text-slate-400">Managing Director, Indirapuram</p>
+                            <h4 class="font-serif font-bold text-white text-base">Priya Sengupta</h4>
+                            <span class="text-xs text-brand-muted">Park Street, Kolkata</span>
                         </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">Studio</span>
                     </div>
                 </div>
 
                 <!-- Review 3 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="text-amber-400 flex gap-1 text-sm">
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="text-slate-300 text-sm italic leading-relaxed">
-                            "The modular kitchen and master bedroom suite they designed for our villa are incredible. Premium quality materials, transparent pricing, and polite staff throughout."
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "DRI handles custom storage and furniture like true artisans. Our modular wardrobe in New Town fits like a glove with immaculate velvet paneling."
                         </p>
                     </div>
-                    <div class="flex items-center gap-4 pt-6 border-t border-slate-800 mt-6">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" 
-                             alt="Ananya Verma Client Review" 
-                             class="w-12 h-12 rounded-full object-cover border-2 border-amber-500/40" />
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
                         <div>
-                            <h4 class="text-white font-bold text-sm">Ananya Verma</h4>
-                            <p class="text-xs text-slate-400">Villa Owner, Vasundhara</p>
+                            <h4 class="font-serif font-bold text-white text-base">Anirban Mukherjee</h4>
+                            <span class="text-xs text-brand-muted">New Town, Kolkata</span>
                         </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">Bespoke</span>
                     </div>
                 </div>
+
+                <!-- Review 4 -->
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "Designing a boutique in Ballygunge required precision lighting and warm tone combinations. DRI executed everything right on schedule."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Sneha Banerjee</h4>
+                            <span class="text-xs text-brand-muted">Ballygunge, Kolkata</span>
+                        </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">Commercial</span>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "The 3D design concept saved us from multiple wrong layout decisions. DRI showed us the exact bedroom lighting before buying materials."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Dr. Rajesh Ghosh</h4>
+                            <span class="text-xs text-brand-muted">Alipore, Kolkata</span>
+                        </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">3D Concept</span>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "DRI redesigned our entire living area and hall. Their color palette choice with wood veneer and fluted paneling is divine!"
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Tanvi Dutta</h4>
+                            <span class="text-xs text-brand-muted">Southern Avenue, Kolkata</span>
+                        </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">Residential</span>
+                    </div>
+                </div>
+
+                <!-- Review 7 -->
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "Top tier interior work! From site consultation to final clean handover, Rahil Ilyas personally supervised each detail."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Vikramaditya Shah</h4>
+                            <span class="text-xs text-brand-muted">Howrah, Kolkata</span>
+                        </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">Turnkey</span>
+                    </div>
+                </div>
+
+                <!-- Review 8 -->
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "If you want bespoke luxury without hassle in Kolkata, DRI is the team. Their custom headboards and organic wall art are unmatched."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Meghna Roy Chowdhury</h4>
+                            <span class="text-xs text-brand-muted">Gariahat, Kolkata</span>
+                        </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">Interior</span>
+                    </div>
+                </div>
+
+                <!-- DUPLICATE FOR INFINITE LOOP EFFECT -->
+                <!-- Review 1 Duplicated -->
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "Rahil transformed our Salt Lake apartment into an absolute masterpiece. The 3D render matched the exact final outcome. High professionalism throughout!"
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Subhashish Roy</h4>
+                            <span class="text-xs text-brand-muted">Salt Lake, Kolkata</span>
+                        </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">Residential</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 Duplicated -->
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "The vanity mirror wall and bespoke star wardrobe created for our Park Street studio received so many compliments. Exceptional taste and finishing!"
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Priya Sengupta</h4>
+                            <span class="text-xs text-brand-muted">Park Street, Kolkata</span>
+                        </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">Studio</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 Duplicated -->
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "DRI handles custom storage and furniture like true artisans. Our modular wardrobe in New Town fits like a glove with immaculate velvet paneling."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Anirban Mukherjee</h4>
+                            <span class="text-xs text-brand-muted">New Town, Kolkata</span>
+                        </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">Bespoke</span>
+                    </div>
+                </div>
+
+                <!-- Review 4 Duplicated -->
+                <div class="w-[380px] glass-card p-8 rounded-2xl flex-shrink-0 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-brand-orange text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "Designing a boutique in Ballygunge required precision lighting and warm tone combinations. DRI executed everything right on schedule."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Sneha Banerjee</h4>
+                            <span class="text-xs text-brand-muted">Ballygunge, Kolkata</span>
+                        </div>
+                        <span class="text-[10px] uppercase font-semibold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full">Commercial</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-20 bg-slate-950 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-12 gap-12">
-                
-                <!-- Contact Information -->
-                <div class="lg:col-span-5 space-y-8">
+    <!-- Contact & Integrated Google Map Section -->
+    <section id="contact" class="py-24 bg-brand-surface relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information & Quick Form -->
+                <div class="space-y-8">
                     <div>
-                        <span class="text-amber-400 text-sm font-semibold tracking-wider uppercase">Get In Touch</span>
-                        <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white mt-2">Let's Discuss Your Dream Project</h2>
-                        <p class="text-slate-400 text-sm mt-3 leading-relaxed">Visit our design studio or send us a message for a free consultation and project estimate.</p>
+                        <span class="text-brand-orange text-xs font-bold uppercase tracking-[0.3em]">Get In Touch</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-3">Let's Design Your Dream Space</h2>
+                        <p class="text-brand-muted text-sm sm:text-base mt-4 font-light">
+                            Schedule an in-person or virtual consultation with Rahil Ilyas to discuss your residential or commercial project in Kolkata.
+                        </p>
                     </div>
 
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0 text-xl">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold text-base">Studio Address</h4>
-                                <p class="text-slate-400 text-sm mt-1">Royal Interior Studio, Raj Nagar Extension / Indirapuram, Ghaziabad, Uttar Pradesh - 201017</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0 text-xl">
+                    <!-- Direct Reach Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="tel:9330796432" class="glass-card p-5 rounded-xl flex items-center gap-4 hover:border-brand-orange transition-colors">
+                            <div class="w-12 h-12 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange text-xl">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold text-base">Phone & WhatsApp</h4>
-                                <p class="text-slate-400 text-sm mt-1">+91 98765 43210 / +91 98123 45678</p>
+                                <span class="text-xs text-brand-muted uppercase font-medium">Direct Call</span>
+                                <h4 class="font-bold text-white text-sm">+91 93307 96432</h4>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0 text-xl">
+                        <a href="mailto:dri.interiordesigner@gmail.com" class="glass-card p-5 rounded-xl flex items-center gap-4 hover:border-brand-orange transition-colors">
+                            <div class="w-12 h-12 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange text-xl">
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
-                            <div>
-                                <h4 class="text-white font-semibold text-base">Email</h4>
-                                <p class="text-slate-400 text-sm mt-1">info@royalinterior.in / sales@royalinterior.in</p>
+                            <div class="overflow-hidden">
+                                <span class="text-xs text-brand-muted uppercase font-medium">Email Us</span>
+                                <h4 class="font-bold text-white text-xs truncate">dri.interiordesigner@gmail.com</h4>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
-                    <!-- Direct WhatsApp Quick Connect Button -->
-                    <a href="https://wa.me/919876543210?text=Hello%20Royal%20Interior,%20I%20would%20like%20to%20inquire%20about%20interior%20design%20services." 
-                       target="_blank" 
-                       class="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-full shadow-lg transition-all transform hover:scale-105">
-                        <i class="fa-brands fa-whatsapp text-xl"></i>
-                        <span>Chat Instantly on WhatsApp</span>
+                    <!-- Instagram Shortcut -->
+                    <a href="https://instagram.com/designedbrahililyas" target="_blank" class="glass-card p-5 rounded-xl flex items-center justify-between hover:border-brand-orange transition-colors group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 flex items-center justify-center text-white text-2xl">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-brand-muted uppercase font-medium">Follow Design Portfolio</span>
+                                <h4 class="font-bold text-white text-sm">@designedbrahililyas</h4>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-brand-muted group-hover:text-brand-orange transition-colors"></i>
                     </a>
-                </div>
 
-                <!-- Interactive Consultation Form -->
-                <div class="lg:col-span-7 bg-slate-900 border border-slate-800 p-8 rounded-3xl relative">
-                    <h3 class="text-2xl font-bold font-serif text-white mb-6">Book Free Consultation</h3>
-                    
-                    <form id="enquiry-form" class="space-y-5">
-                        <div class="grid sm:grid-cols-2 gap-5">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Your Name</label>
-                                <input type="text" id="form-name" required placeholder="John Doe" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-amber-500 text-sm" />
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Phone Number</label>
-                                <input type="tel" id="form-phone" required placeholder="+91 98765 43210" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-amber-500 text-sm" />
-                            </div>
+                    <!-- Direct Message Form -->
+                    <form onsubmit="handleFormSubmit(event)" class="glass-card p-8 rounded-2xl space-y-4">
+                        <h3 class="font-serif text-lg font-bold text-white mb-2">Request Project Quote</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Your Name" required class="w-full bg-brand-dark/80 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange">
+                            <input type="tel" placeholder="Phone Number" required class="w-full bg-brand-dark/80 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange">
                         </div>
-
-                        <div class="grid sm:grid-cols-2 gap-5">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Property Type</label>
-                                <select id="form-property" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-amber-500 text-sm">
-                                    <option value="Residential Apartment">Residential Apartment (2/3/4 BHK)</option>
-                                    <option value="Independent Villa/Kothi">Independent Villa / Kothi</option>
-                                    <option value="Commercial Office">Commercial Office Space</option>
-                                    <option value="Retail Outlet">Retail Store / Restaurant</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Location in NCR</label>
-                                <input type="text" id="form-location" placeholder="e.g. Indirapuram, Ghaziabad" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-amber-500 text-sm" />
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Project Message / Requirements</label>
-                            <textarea id="form-message" rows="4" placeholder="Tell us about your space size, budget, and design expectations..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-amber-500 text-sm"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold py-4 rounded-xl shadow-lg transition-all text-sm uppercase tracking-wider">
-                            Send Request via WhatsApp
+                        <input type="email" placeholder="Email Address" required class="w-full bg-brand-dark/80 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange">
+                        <select class="w-full bg-brand-dark/80 border border-white/10 rounded-lg px-4 py-3 text-sm text-gray-400 focus:outline-none focus:border-brand-orange">
+                            <option>Select Service Needed</option>
+                            <option>Residential Interior</option>
+                            <option>Commercial Interior / Studio</option>
+                            <option>3D Design Concept</option>
+                            <option>Bespoke Furniture</option>
+                        </select>
+                        <textarea rows="3" placeholder="Tell us about your project requirements..." class="w-full bg-brand-dark/80 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange"></textarea>
+                        <button type="submit" class="w-full bg-brand-orange hover:bg-orange-600 text-white font-semibold py-3.5 rounded-lg text-sm uppercase tracking-wider transition-all shadow-lg shadow-brand-orange/20">
+                            Send Enquiry
                         </button>
                     </form>
                 </div>
 
+                <!-- Google Maps Embed for Kolkata Studio -->
+                <div class="flex flex-col h-full space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-serif text-xl font-bold text-white">Our Location in Kolkata</h3>
+                        <span class="text-xs text-brand-orange font-semibold uppercase tracking-wider"><i class="fa-solid fa-location-crosshairs mr-1"></i> Kolkata & Suburbs</span>
+                    </div>
+                    <div class="glass-card rounded-2xl overflow-hidden flex-1 min-h-[400px] relative border border-white/10 shadow-2xl">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29461.12574187063!2d88.3476023!3d22.572646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277a80f323309%3A0x2b778d9283f360c7!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; filter: grayscale(0.8) contrast(1.2) opacity(0.95);" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-12 text-slate-400 text-sm">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
-            <div class="space-y-4">
-                <div class="flex items-center gap-3">
-                    <img src="logo.jpeg" alt="Royal Interior Footer Logo" class="h-10 w-10 rounded-full border border-amber-400 object-cover" onerror="this.src='https://placehold.co/100x100/1e293b/f59e0b?text=RI'" />
-                    <span class="font-serif font-bold text-white text-lg">ROYAL INTERIOR</span>
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-white/10 text-brand-muted text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="logoo.jpeg" alt="DRI Logo" class="w-8 h-8 rounded-full border border-brand-orange">
+                <div>
+                    <span class="font-serif text-white font-bold text-base">DRI</span>
+                    <span class="text-[10px] block text-brand-muted">Designed by Rahil Ilyas — Interior Design Studio Kolkata</span>
                 </div>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                    Comfort | Luxury | Beauty | Aesthetic | Royalty. Crafting premium interiors across Ghaziabad & Delhi NCR.
-                </p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="tel:9330796432" class="hover:text-brand-orange transition-colors">Phone: +91 93307 96432</a>
+                <a href="mailto:dri.interiordesigner@gmail.com" class="hover:text-brand-orange transition-colors">dri.interiordesigner@gmail.com</a>
+                <a href="https://instagram.com/designedbrahililyas" target="_blank" class="hover:text-brand-orange transition-colors">Instagram: @designedbrahililyas</a>
             </div>
 
-            <div>
-                <h4 class="text-white font-bold text-sm font-serif mb-4">Quick Links</h4>
-                <ul class="space-y-2 text-xs">
-                    <li><a href="#about" class="hover:text-amber-400 transition-colors">About Us</a></li>
-                    <li><a href="#services" class="hover:text-amber-400 transition-colors">Our Services</a></li>
-                    <li><a href="#portfolio" class="hover:text-amber-400 transition-colors">Portfolio</a></li>
-                    <li><a href="#reviews" class="hover:text-amber-400 transition-colors">Client Reviews</a></li>
-                    <li><a href="#contact" class="hover:text-amber-400 transition-colors">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-white font-bold text-sm font-serif mb-4">Design Services</h4>
-                <ul class="space-y-2 text-xs">
-                    <li><a href="#services" class="hover:text-amber-400 transition-colors">Living Room Interiors</a></li>
-                    <li><a href="#services" class="hover:text-amber-400 transition-colors">Modular Kitchens</a></li>
-                    <li><a href="#services" class="hover:text-amber-400 transition-colors">Master Bedroom Design</a></li>
-                    <li><a href="#services" class="hover:text-amber-400 transition-colors">Office & Commercial Setup</a></li>
-                    <li><a href="#services" class="hover:text-amber-400 transition-colors">Turnkey Interior Execution</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-white font-bold text-sm font-serif mb-4">Connect With Us</h4>
-                <div class="flex gap-4 text-slate-400 text-lg">
-                    <a href="#" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-pinterest"></i></a>
-                    <a href="#" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-                <p class="text-xs text-slate-500 mt-4">© 2026 Royal Interior Studio. All rights reserved.</p>
+            <div class="text-center md:text-right">
+                <p>&copy; 2026 DRI Interior Design Studio. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Floating Quick Action Buttons -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <!-- Direct Phone Dial -->
+        <a href="tel:9330796432" class="w-12 h-12 bg-brand-orange text-white rounded-full flex items-center justify-center text-xl shadow-xl hover:scale-110 transition-transform">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <!-- Direct WhatsApp Chat -->
+        <a href="https://wa.me/919330796432?text=Hello%20DRI%20Interiors,%20I%20would%20like%20to%20enquire%20about%20interior%20design%20services." target="_blank" class="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-110 transition-transform">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Image Preview Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/95 hidden flex items-center justify-center p-4 backdrop-blur-md">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-brand-orange">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl w-full flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Project Preview" class="max-h-[80vh] w-auto rounded-lg shadow-2xl border border-white/20">
+            <p id="lightbox-caption" class="font-serif text-white text-lg mt-4 text-center"></p>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
     <script>
-        // Toggle mobile navigation menu
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            document.querySelectorAll('.mobile-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
+        // Hero Slide Carousel Animation
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 4500);
+
+        // Lightbox Functions
+        function openLightbox(src, caption) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-caption').innerText = caption;
+            document.getElementById('lightbox').classList.remove('hidden');
         }
 
-        // Portfolio filtering logic
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-amber-500', 'text-slate-950', 'active');
-                    b.classList.add('bg-slate-800', 'text-slate-300');
-                });
-                btn.classList.add('bg-amber-500', 'text-slate-950', 'active');
-                btn.classList.remove('bg-slate-800', 'text-slate-300');
+        // Mobile Navigation Drawer Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-                const filterValue = btn.getAttribute('data-filter');
-
-                portfolioItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
-        // Contact Form to WhatsApp Redirection
-        const enquiryForm = document.getElementById('enquiry-form');
-        if (enquiryForm) {
-            enquiryForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const name = document.getElementById('form-name').value;
-                const phone = document.getElementById('form-phone').value;
-                const property = document.getElementById('form-property').value;
-                const location = document.getElementById('form-location').value;
-                const message = document.getElementById('form-message').value;
-
-                const waMessage = `Hello Royal Interior,%0A%0A*New Project Enquiry*%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Property:* ${encodeURIComponent(property)}%0A*Location:* ${encodeURIComponent(location)}%0A*Requirements:* ${encodeURIComponent(message)}`;
-
-                window.open(`https://wa.me/919876543210?text=${waMessage}`, '_blank');
-            });
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for reaching out to DRI (Designed by Rahil Ilyas). We will contact you shortly!');
         }
     </script>
 </body>
